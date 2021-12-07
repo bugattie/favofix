@@ -1,10 +1,7 @@
-import 'package:favofix/screens/otp/phone_login_screen.dart';
-import 'package:favofix/widgets/default_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../config/size_config.dart' as size_config;
-import './login_form.dart';
+import './otp_form.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -26,25 +23,10 @@ class Body extends StatelessWidget {
               ),
             ),
             SizedBox(height: size_config.SizeConfig.screenHeight * 0.1),
-            const LoginForm(),
-            SizedBox(height: size_config.SizeConfig.screenHeight * 0.05),
-            Text(
-              'OR',
-              style: TextStyle(color: Colors.black.withOpacity(.5)),
-            ),
-            SizedBox(height: size_config.SizeConfig.screenHeight * 0.05),
-            DefaultButton(
-              text: "Login via OTP",
-              press: () {
-                Navigator.of(context)
-                    .pushReplacementNamed(PhoneLoginScreen.routeName);
-              },
-            ),
+            const OTPForm(),
           ],
         ),
       ),
     );
   }
 }
-
-class SizeConfig {}

@@ -1,21 +1,24 @@
-import 'package:favofix/screens/login/login.dart';
+import 'package:favofix/config/theme.dart';
 import 'package:flutter/material.dart';
 
+import './config/app_router.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp(appRouter: AppRouter()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key, required this.appRouter}) : super(key: key);
+
+  final AppRouter appRouter;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Favofix',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LoginScreen(),
+      theme: theme(),
+      onGenerateRoute: appRouter.onGenerateRoute,
     );
   }
 }
